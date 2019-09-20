@@ -36,6 +36,7 @@ class Game extends Component {
 
   roll(evt) {
     // roll dice whose indexes are in reroll
+    //added if statement to only allow 3 rolls
     if (this.state.rollsLeft > 0) {
       this.setState(st => ({
         dice: st.dice.map(
@@ -59,6 +60,7 @@ class Game extends Component {
 
   doScore(rulename, ruleFn) {
     // evaluate this ruleFn with the dice and score this rulename
+    //added if statement to prevent rescoring categories
     if (!this.state.scores[rulename]) {
       this.setState(st => ({
         scores: { ...st.scores, [rulename]: ruleFn(this.state.dice) },

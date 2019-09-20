@@ -63,8 +63,9 @@ class SumDistro extends Rule {
 class FullHouse extends Rule {
   evalRoll(dice) {
     //checks if freq array has two and three of a kind, returns score
-    let fullHouse = this.freq(dice) 
-    return (fullHouse.length === 2 && fullHouse.includes(2) && fullHouse.includes(3)) ? this.score : 0;
+    let diceFreq = this.freq(dice);
+    let isFullHouse = diceFreq.includes(2) && diceFreq.includes(3);
+    return isFullHouse ? this.score : 0;
   }
 }
 
@@ -91,10 +92,10 @@ class SmallStraight extends Rule {
 
 class LargeStraight extends Rule {
   evalRoll(dice) {
-    const d = new Set(dice);
-
     // large straight must be 5 different dice & only one can be a 1 or a 6
-    return d.size === 5 && (!d.has(1) || !d.has(6)) ? this.score : 0;
+    const d = new Set(dice);
+    const isLargeStraight = d.size === 5 && (!d.has(1) || !d.has(6));
+    return isLargeStraight ? this.score : 0;
   }
 }
 

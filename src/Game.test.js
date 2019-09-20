@@ -37,14 +37,14 @@ it('should not allow re-using score line', function() {
   wrapper.find('button').at(5).simulate('click');
   wrapper.find('tr').at(12).simulate('click');
 
-  let firstChance = wrapper.find('td').at(25);
+  let firstChance = wrapper.find('td').at(23);
 
   wrapper.find('button').at(5).simulate('click');
   wrapper.find('button').at(5).simulate('click');
   wrapper.find('button').at(5).simulate('click');
   wrapper.find('tr').at(12).simulate('click');
 
-  let secondChance = wrapper.find('td').at(25);
+  let secondChance = wrapper.find('td').at(23);
 
   expect(firstChance).toEqual(secondChance);
 });
